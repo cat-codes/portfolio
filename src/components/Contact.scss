@@ -1,0 +1,55 @@
+@import '../index.scss';
+
+.contact {
+  height: fit-content;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 100%;
+
+  &-contents {
+    display: flex;
+    gap: 2em;
+    justify-content: space-between;
+
+    #ul-txt {
+      padding-bottom: 1em;
+      max-width: 800px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: left;
+      gap: 2em;
+    }
+
+    input, textarea {
+      background: inherit;
+      font-family: inherit;
+      border: none;
+      border-bottom: 1px solid map-get($colors, secondary);
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid map-get($colors, accent2);
+      }
+    }
+
+    #name, #email {
+      width: 600px;
+      padding: 0 2px 0.5em;
+    }
+
+    #message {
+      width: 600px;
+      height: 150px;
+      padding: 0 2px;
+      white-space: normal;
+      resize: none;
+      overflow-wrap: break-word;
+    }
+  }
+}

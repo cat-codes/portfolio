@@ -1,0 +1,108 @@
+html,
+body,
+#root,
+:root {
+  font-family: "Comfortaa", sans-serif;
+  background: rgb(1, 2, 3);
+  margin: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 2em 10em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+input,
+textarea,
+ul {
+  color: rgb(255, 255, 255);
+  margin: 0;
+}
+
+h2 {
+  font-size: 88px;
+}
+
+h3 {
+  font-size: 66px;
+}
+
+h4 {
+  font-size: 36px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+p,
+a,
+input,
+textarea,
+button {
+  font-size: 16px;
+  line-height: 32px;
+}
+
+a {
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25em;
+}
+
+ul {
+  font-size: 24px;
+  line-height: 32px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.75em;
+}
+
+svg {
+  width: 2em;
+}
+
+.skills {
+  width: 100%;
+}
+.skills .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-between;
+  row-gap: 4em;
+  -moz-column-gap: 4em;
+       column-gap: 4em;
+  padding: 3em 0;
+}
+.skills .skills-grid-piece {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.75em;
+  transition: transform 1s ease-out;
+  transform-origin: center;
+}
+.skills .skills-grid-piece:hover {
+  transform: rotateY(360deg);
+}/*# sourceMappingURL=Skills.css.map */

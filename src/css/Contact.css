@@ -1,0 +1,131 @@
+html,
+body,
+#root,
+:root {
+  font-family: "Comfortaa", sans-serif;
+  background: rgb(1, 2, 3);
+  margin: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 2em 10em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4em;
+}
+
+h1,
+h2,
+h3,
+p,
+input,
+textarea,
+ul {
+  color: rgb(255, 255, 255);
+  margin: 0;
+}
+
+h2 {
+  font-size: 88px;
+}
+
+h3 {
+  font-size: 66px;
+}
+
+p,
+a,
+input,
+textarea,
+button {
+  font-size: 16px;
+  line-height: 32px;
+}
+
+a {
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25em;
+}
+
+button {
+  color: rgb(255, 255, 255);
+  font-family: inherit;
+  font-weight: 700;
+  padding: 0.5em 2em;
+  width: 10em;
+  background: rgb(1, 2, 3);
+  cursor: pointer;
+}
+
+ul {
+  font-size: 24px;
+  line-height: 32px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.75em;
+}
+
+svg {
+  width: 2em;
+}
+
+.contact {
+  height: -moz-fit-content;
+  height: fit-content;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 100%;
+}
+.contact-contents {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+}
+.contact-contents #ul-txt {
+  padding-bottom: 1em;
+  max-width: 800px;
+}
+.contact-contents form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: left;
+  gap: 2em;
+}
+.contact-contents input, .contact-contents textarea {
+  background: inherit;
+  font-family: inherit;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.contact-contents input:focus, .contact-contents textarea:focus {
+  outline: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+.contact-contents #name, .contact-contents #email {
+  width: 600px;
+  padding: 0 2px 0.5em;
+}
+.contact-contents #message {
+  width: 600px;
+  height: 150px;
+  padding: 0 2px;
+  white-space: normal;
+  resize: none;
+  overflow-wrap: break-word;
+}/*# sourceMappingURL=Contact.css.map */

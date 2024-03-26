@@ -1,0 +1,40 @@
+@import '../index.scss';
+
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  gap: 2em;
+  padding-bottom: 8em;
+  border-bottom: 1px solid map-get($colors, secondary);
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    p {
+      width: 75%;
+    }
+
+    .underline {
+      text-decoration: underline solid map-get($colors, accent);
+      display: inline-block;
+    }
+
+    #contact {
+      width: fit-content;
+      font-weight: 700;
+      letter-spacing: 2px;
+      cursor: pointer;
+      position: relative;
+    }
+  }
+
+    #dp {
+      height: 750px;
+      border-radius: 20px;
+      filter:contrast(115%)
+    }
+}
