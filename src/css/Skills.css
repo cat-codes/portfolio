@@ -1,23 +1,24 @@
-html,
-body,
-#root,
-:root {
-  font-family: "Comfortaa", sans-serif;
-  background: rgb(1, 2, 3);
-  margin: 0;
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-}
-
-#root {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  padding: 2em 10em;
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4em;
+  justify-content: center;
+  margin: 0;
+  background: rgb(1, 2, 3);
+}
+
+#root {
+  width: clamp(320px, 100%, 1920px);
+  padding-inline: clamp(1.25rem, 10%, 10rem);
+  padding-block: clamp(1.25rem, 10%, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 15%, 5rem);
+  font-family: "Comfortaa", sans-serif;
+  background: rgb(1, 2, 3);
+  box-sizing: border-box;
 }
 
 h1,
@@ -28,25 +29,30 @@ h5,
 p,
 input,
 textarea,
+button,
 ul {
   color: rgb(255, 255, 255);
   margin: 0;
 }
 
+h1 {
+  font-size: 2rem;
+}
+
 h2 {
-  font-size: 88px;
+  font-size: 5.5rem;
 }
 
 h3 {
-  font-size: 66px;
+  font-size: 4.25rem;
 }
 
 h4 {
-  font-size: 36px;
+  font-size: 2.25rem;
 }
 
 h5 {
-  font-size: 20px;
+  font-size: 1.75rem;
 }
 
 p,
@@ -54,8 +60,9 @@ a,
 input,
 textarea,
 button {
-  font-size: 16px;
-  line-height: 32px;
+  font-size: 1rem;
+  line-height: 2rem;
+  cursor: pointer;
 }
 
 a {
@@ -63,46 +70,105 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 1.25em;
+  gap: 1.25rem;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(255, 43, 78);
+}
+
+button {
+  position: relative;
+  font-family: inherit;
+  background: none;
+  border: none;
+  padding-block: 8px;
 }
 
 ul {
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 1.5rem;
+  line-height: 2rem;
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 0.75em;
+  gap: 0.75rem;
 }
 
 svg {
-  width: 2em;
+  transition: scale 0.3s ease-out;
+}
+svg:hover {
+  scale: 1.15;
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.25rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  h4 {
+    font-size: 1.75rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  p,
+  a,
+  input,
+  textarea,
+  button {
+    font-size: 0.85rem;
+    line-height: 1.75rem;
+  }
+}
 .skills {
   width: 100%;
 }
 .skills .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(auto-fit, 15em);
   justify-content: space-between;
-  row-gap: 4em;
-  -moz-column-gap: 4em;
-       column-gap: 4em;
-  padding: 3em 0;
+  gap: 3em 4em;
 }
 .skills .skills-grid-piece {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding-block: 1em;
   gap: 0.75em;
-  transition: transform 1s ease-out;
-  transform-origin: center;
+  background-color: inherit;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  transition: transform 0.75s ease-out;
+  transform-style: preserve-3d;
+  cursor: pointer;
 }
 .skills .skills-grid-piece:hover {
-  transform: rotateY(360deg);
+  transform: rotateY(180deg);
+}
+.skills .skills-grid-piece .back {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  background: rgb(255, 255, 255);
+  transform: rotateY(180deg);
 }/*# sourceMappingURL=Skills.css.map */

@@ -1,9 +1,11 @@
+import "./App.scss";
 import { useRef } from "react";
 import Header from "./components/Header";
 import Intro from "./components/Intro";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   const contactRef = useRef(null);
@@ -21,6 +23,7 @@ function App() {
       <Skills />
       <Projects />
       <Contact ref={contactRef} />
+      <Footer />
     </>
   );
 }

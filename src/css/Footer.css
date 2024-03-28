@@ -1,0 +1,149 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background: rgb(1, 2, 3);
+}
+
+#root {
+  width: clamp(320px, 100%, 1920px);
+  padding-inline: clamp(1.25rem, 10%, 10rem);
+  padding-block: clamp(1.25rem, 10%, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  font-family: "Comfortaa", sans-serif;
+  background: rgb(1, 2, 3);
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+input,
+textarea,
+button,
+ul {
+  color: rgb(255, 255, 255);
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 5.5rem;
+}
+
+h3 {
+  font-size: 4.25rem;
+}
+
+h4 {
+  font-size: 2.25rem;
+}
+
+h5 {
+  font-size: 1.75rem;
+}
+
+p,
+a,
+input,
+textarea,
+button {
+  font-size: 1rem;
+  line-height: 2rem;
+  cursor: pointer;
+}
+
+a {
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(255, 43, 78);
+}
+
+button {
+  position: relative;
+  font-family: inherit;
+  background: none;
+  border: none;
+  padding-block: 8px;
+}
+
+ul {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.75rem;
+}
+
+svg {
+  transition: scale 0.3s ease-out;
+}
+svg:hover {
+  scale: 1.15;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.25rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  h4 {
+    font-size: 1.75rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  p,
+  a,
+  input,
+  textarea,
+  button {
+    font-size: 0.85rem;
+    line-height: 1.75rem;
+  }
+}
+.footer {
+  height: 4rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+.footer .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: clamp(0.75rem, 3%, 1.5rem);
+}
+.footer .content .icons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}/*# sourceMappingURL=Footer.css.map */

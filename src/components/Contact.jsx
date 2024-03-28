@@ -1,28 +1,41 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import "./Contact.scss";
-import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import Phone from "../../public/svg/Phone";
 import Email from "../../public/svg/Email";
 import Github from "../../public/svg/Github";
 import Linkedin from "../../public/svg/Linkedin";
+import Copy from "../../public/svg/Copy";
 
 const Contact = React.forwardRef((props, ref) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const form = useRef();
 
-  // Stores message content
-  const [message, setMessage] = useState("");
-
-  // Handles textarea input change and resizes the textarea
-  const handleTextareaChange = (event) => {
-    setMessage(event.target.value);
-    resizeTextarea();
+  const copyTextToClipboard = (text) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        console.log("Text copied: ", text);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
-  // Resizes the textarea vertically based on its content
-  const resizeTextarea = () => {
-    const textarea = document.getElementById("message");
-    textarea.style.height = "auto";
-    textarea.style.height = `${textarea.scrollHeight}px`;
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_to9ifyl", "template_b28uhlf", form.current, {
+        publicKey: "yPfAjYlAxEUxeYt5A",
+      })
+      .then(
+        () => {
+          console.log("Message sent.");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   return (
@@ -30,29 +43,27 @@ const Contact = React.forwardRef((props, ref) => {
       <h3>contact</h3>
       <div className="contact-contents">
         <ul>
-          <section id="ul-txt">
+          <section id="txt">
             Let&apos;s get in touch! To connect with me you can reach out
             through social platforms, through my personal contacts provided
             below, or simply by sending a message directly.
           </section>
           <li>
-            <a
-              href="tel:+4917665159155"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a onClick={() => copyTextToClipboard("+49 176 65159155")}>
               <Phone />
-              +49 176 65159155
+              <div className="highlight">
+                +49 176 65159155
+                <Copy />
+              </div>
             </a>
           </li>
           <li>
-            <a
-              href="mailto:milda.singh@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a onClick={() => copyTextToClipboard("milda.singh@gmail.com")}>
               <Email />
-              milda.singh@gmail.com
+              <div className="highlight">
+                milda.singh@gmail.com
+                <Copy />
+              </div>
             </a>
           </li>
           <li>
@@ -76,47 +87,15 @@ const Contact = React.forwardRef((props, ref) => {
             </a>
           </li>
         </ul>
-        <form>
-          <input id="name" placeholder="Name" />
-          <input id="email" placeholder="Email" />
-          <textarea
-            id="message"
-            placeholder="Message"
-            value={message}
-            onChange={handleTextareaChange}
-          />
-          <AnimatePresence>
-            <motion.button
-              type="button"
-              style={{
-                color: "white",
-                fontFamily: "inherit",
-                fontWeight: 700,
-                padding: "0.5em 2em",
-                width: "10em",
-                cursor: "pointer",
-                border: "none",
-                position: "relative",
-                overflow: "hidden",
-                background: "rgb(1, 2, 3)",
-              }}
-              onHoverStart={() => setIsHovered(true)}
-              onHoverEnd={() => setIsHovered(false)}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  top: isHovered ? "0" : "90%",
-                  background: "rgb(255, 43, 78)",
-                  transition: "top 0.3s ease-out",
-                }}
-              />
-              <span style={{ position: "relative", zIndex: 1 }}>Send</span>
-            </motion.button>
-          </AnimatePresence>
+        <form ref={form} onSubmit={sendEmail}>
+          <input name="user_name" placeholder="Name" type="text" />
+          <input name="user_email" placeholder="Email" type="email" />
+          <textarea name="message" placeholder="Message" />
+          <button type="submit" value="Send">
+            {" "}
+            <div id="underline-grow" />
+            <span>Send</span>
+          </button>
         </form>
       </div>
     </section>

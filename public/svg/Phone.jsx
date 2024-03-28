@@ -5,11 +5,12 @@ const Phone = () => {
     <svg
       stroke="white"
       fill="white"
-      strokeWidth="0"
+      strokeWidth="0.5"
       viewBox="0 0 16 16"
-      height="2em"
-      width="2em"
+      height="1.75rem"
+      width="1.75rem"
       xmlns="http://www.w3.org/2000/svg"
+      alt="Phone Number"
     >
       <path
         fillRule="evenodd"

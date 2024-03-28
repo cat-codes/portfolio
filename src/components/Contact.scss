@@ -1,55 +1,156 @@
 @import '../index.scss';
 
+@keyframes growUnderline {
+  0% {
+    height: 3px;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes shrinkUnderline {
+  0% {
+    height: 100%;
+  }
+
+  100% {
+    height: 3px;
+  }
+}
+
 .contact {
-  height: fit-content;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 2rem;
   width: 100%;
+  box-sizing: border-box;
 
   &-contents {
     display: flex;
-    gap: 2em;
+    align-items: center;
     justify-content: space-between;
+    gap: 5rem;
 
-    #ul-txt {
-      padding-bottom: 1em;
-      max-width: 800px;
+    ul{
+      display: flex;
+      flex-direction: column;
+
+      #txt {
+        color: map-get($colors, accent2);
+        font-size: 24px;
+        line-height: 2.5rem;
+        padding-bottom: 1rem;
+        max-width: 600px;
+      }
+
+      li {
+        a{
+          font-size: 14px;
+
+          svg {
+            scale: 0.75;
+          }
+
+          .highlight {
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            gap: 1rem;
+          }
+
+          .highlight:hover svg {
+            fill: map-get($colors, accent);
+            scale: 0.9;;
+          }
+        }
+      }
     }
 
     form {
+      width: 60%;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       justify-content: left;
-      gap: 2em;
-    }
+      gap: 2rem;
 
-    input, textarea {
-      background: inherit;
-      font-family: inherit;
-      border: none;
-      border-bottom: 1px solid map-get($colors, secondary);
+      input, textarea {
+        background: inherit;
+        font-family: inherit;
+        border: none;
+        border-bottom: 1px solid map-get($colors, secondary);
+        width: clamp(100%, 100%, 600px);
+        white-space: normal;
+        resize: none;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
 
-      &:focus {
-        outline: none;
-        border-bottom: 1px solid map-get($colors, accent2);
+        &:focus {
+          outline: none;
+          border-bottom: 1px solid map-get($colors, accent2);
+        }
+      }
+
+      input {
+        padding: 0 2px 0.5rem;
+      }
+
+      textarea {
+        height: 150px;
+        padding: 0;
+      }
+
+      button {
+        font-weight: 700;
+        width: 8rem;
+        padding-inline: 2rem;
+
+        span {
+          position: relative;
+          z-index: 1;
+        }
+
+        #underline-grow {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: map-get($colors, accent);
+          transition: height 0.75s ease;
+          z-index: 0;
+        }
+
+        &:hover #underline-grow {
+          animation: growUnderline 0.75s ease forwards;
+        }
+
+        &:not(:hover) #underline-grow {
+          animation: shrinkUnderline 0.75s ease forwards;
+        }
       }
     }
+  }
+}
 
-    #name, #email {
-      width: 600px;
-      padding: 0 2px 0.5em;
+@media (max-width: 768px) {
+  .contact-contents {
+    flex-direction: column;
+
+    #txt {
+      font-size: 0.85rem;
+      line-height: 1.75rem;
     }
 
-    #message {
-      width: 600px;
-      height: 150px;
-      padding: 0 2px;
-      white-space: normal;
-      resize: none;
-      overflow-wrap: break-word;
+    form {
+      width: 100%;
+      gap: 1rem;
+
+      button {
+        width: 6rem;
+      }
     }
   }
 }

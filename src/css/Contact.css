@@ -1,42 +1,58 @@
-html,
-body,
-#root,
-:root {
-  font-family: "Comfortaa", sans-serif;
-  background: rgb(1, 2, 3);
-  margin: 0;
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-}
-
-#root {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  padding: 2em 10em;
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4em;
+  justify-content: center;
+  margin: 0;
+  background: rgb(1, 2, 3);
+}
+
+#root {
+  width: clamp(320px, 100%, 1920px);
+  padding-inline: clamp(1.25rem, 10%, 10rem);
+  padding-block: clamp(1.25rem, 10%, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  font-family: "Comfortaa", sans-serif;
+  background: rgb(1, 2, 3);
+  box-sizing: border-box;
 }
 
 h1,
 h2,
 h3,
+h4,
+h5,
 p,
 input,
 textarea,
+button,
 ul {
   color: rgb(255, 255, 255);
   margin: 0;
 }
 
+h1 {
+  font-size: 2rem;
+}
+
 h2 {
-  font-size: 88px;
+  font-size: 5.5rem;
 }
 
 h3 {
-  font-size: 66px;
+  font-size: 4.25rem;
+}
+
+h4 {
+  font-size: 2.25rem;
+}
+
+h5 {
+  font-size: 1.75rem;
 }
 
 p,
@@ -44,8 +60,9 @@ a,
 input,
 textarea,
 button {
-  font-size: 16px;
-  line-height: 32px;
+  font-size: 1rem;
+  line-height: 2rem;
+  cursor: pointer;
 }
 
 a {
@@ -53,79 +70,192 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 1.25em;
+  gap: 1.25rem;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(255, 43, 78);
 }
 
 button {
-  color: rgb(255, 255, 255);
+  position: relative;
   font-family: inherit;
-  font-weight: 700;
-  padding: 0.5em 2em;
-  width: 10em;
-  background: rgb(1, 2, 3);
-  cursor: pointer;
+  background: none;
+  border: none;
+  padding-block: 8px;
 }
 
 ul {
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 1.5rem;
+  line-height: 2rem;
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 0.75em;
+  gap: 0.75rem;
 }
 
 svg {
-  width: 2em;
+  transition: scale 0.3s ease-out;
+}
+svg:hover {
+  scale: 1.15;
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.25rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  h4 {
+    font-size: 1.75rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  p,
+  a,
+  input,
+  textarea,
+  button {
+    font-size: 0.85rem;
+    line-height: 1.75rem;
+  }
+}
+@keyframes growUnderline {
+  0% {
+    height: 3px;
+  }
+  100% {
+    height: 100%;
+  }
+}
+@keyframes shrinkUnderline {
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 3px;
+  }
+}
 .contact {
-  height: -moz-fit-content;
-  height: fit-content;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 2rem;
   width: 100%;
+  box-sizing: border-box;
 }
 .contact-contents {
   display: flex;
-  gap: 2em;
+  align-items: center;
   justify-content: space-between;
+  gap: 5rem;
 }
-.contact-contents #ul-txt {
-  padding-bottom: 1em;
-  max-width: 800px;
+.contact-contents ul {
+  display: flex;
+  flex-direction: column;
+}
+.contact-contents ul #txt {
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  line-height: 2.5rem;
+  padding-bottom: 1rem;
+  max-width: 600px;
+}
+.contact-contents ul li a {
+  font-size: 14px;
+}
+.contact-contents ul li a svg {
+  scale: 0.75;
+}
+.contact-contents ul li a .highlight {
+  display: flex;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 1rem;
+}
+.contact-contents ul li a .highlight:hover svg {
+  fill: rgb(255, 43, 78);
+  scale: 0.9;
 }
 .contact-contents form {
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: left;
-  gap: 2em;
+  gap: 2rem;
 }
-.contact-contents input, .contact-contents textarea {
+.contact-contents form input, .contact-contents form textarea {
   background: inherit;
   font-family: inherit;
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-.contact-contents input:focus, .contact-contents textarea:focus {
-  outline: none;
-  border-bottom: 1px solid rgb(255, 255, 255);
-}
-.contact-contents #name, .contact-contents #email {
-  width: 600px;
-  padding: 0 2px 0.5em;
-}
-.contact-contents #message {
-  width: 600px;
-  height: 150px;
-  padding: 0 2px;
+  width: clamp(100%, 100%, 600px);
   white-space: normal;
   resize: none;
   overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+.contact-contents form input:focus, .contact-contents form textarea:focus {
+  outline: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+.contact-contents form input {
+  padding: 0 2px 0.5rem;
+}
+.contact-contents form textarea {
+  height: 150px;
+  padding: 0;
+}
+.contact-contents form button {
+  font-weight: 700;
+  width: 8rem;
+  padding-inline: 2rem;
+}
+.contact-contents form button span {
+  position: relative;
+  z-index: 1;
+}
+.contact-contents form button #underline-grow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgb(255, 43, 78);
+  transition: height 0.75s ease;
+  z-index: 0;
+}
+.contact-contents form button:hover #underline-grow {
+  animation: growUnderline 0.75s ease forwards;
+}
+.contact-contents form button:not(:hover) #underline-grow {
+  animation: shrinkUnderline 0.75s ease forwards;
+}
+
+@media (max-width: 768px) {
+  .contact-contents {
+    flex-direction: column;
+  }
+  .contact-contents #txt {
+    font-size: 0.85rem;
+    line-height: 1.75rem;
+  }
+  .contact-contents form {
+    width: 100%;
+    gap: 1rem;
+  }
+  .contact-contents form button {
+    width: 6rem;
+  }
 }/*# sourceMappingURL=Contact.css.map */

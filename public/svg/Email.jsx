@@ -5,9 +5,10 @@ const Email = () => {
       fill="none"
       strokeWidth="0"
       viewBox="0 0 24 24"
-      height="1.9em"
-      width="1.9em"
+      height="2rem"
+      width="2rem"
       xmlns="http://www.w3.org/2000/svg"
+      alt="Email"
     >
       <path
         strokeLinecap="round"

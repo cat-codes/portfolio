@@ -1,0 +1,21 @@
+@import '../index.scss';
+
+.footer {
+  height: 4rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid map-get($colors, secondary);
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: clamp(0.75rem, 3%, 1.5rem);
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+  }
+}

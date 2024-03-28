@@ -1,23 +1,24 @@
-html,
-body,
-#root,
-:root {
-  font-family: "Comfortaa", sans-serif;
-  background: rgb(1, 2, 3);
-  margin: 0;
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-}
-
-#root {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  padding: 2em 10em;
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4em;
+  justify-content: center;
+  margin: 0;
+  background: rgb(1, 2, 3);
+}
+
+#root {
+  width: clamp(320px, 100%, 1920px);
+  padding-inline: clamp(1.25rem, 10%, 10rem);
+  padding-block: clamp(1.25rem, 10%, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  font-family: "Comfortaa", sans-serif;
+  background: rgb(1, 2, 3);
+  box-sizing: border-box;
 }
 
 h1,
@@ -28,25 +29,30 @@ h5,
 p,
 input,
 textarea,
+button,
 ul {
   color: rgb(255, 255, 255);
   margin: 0;
 }
 
+h1 {
+  font-size: 2rem;
+}
+
 h2 {
-  font-size: 88px;
+  font-size: clamp(3.5rem, 100%, 5.5rem);
 }
 
 h3 {
-  font-size: 66px;
+  font-size: 4.25rem;
 }
 
 h4 {
-  font-size: 36px;
+  font-size: 2.25rem;
 }
 
 h5 {
-  font-size: 20px;
+  font-size: 1.75rem;
 }
 
 p,
@@ -54,8 +60,9 @@ a,
 input,
 textarea,
 button {
-  font-size: 16px;
-  line-height: 32px;
+  font-size: 1rem;
+  line-height: 2rem;
+  cursor: pointer;
 }
 
 a {
@@ -63,57 +70,136 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 1.25em;
+  gap: 1.25rem;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(255, 43, 78);
+}
+
+button {
+  position: relative;
+  font-family: inherit;
+  background: none;
+  border: none;
+  padding-block: 8px;
 }
 
 ul {
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 1.5rem;
+  line-height: 2rem;
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 0.75em;
+  gap: 0.75rem;
 }
 
 svg {
-  width: 2em;
+  transition: scale 0.3s ease-out;
+}
+svg:hover {
+  scale: 1.15;
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.25rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  h4 {
+    font-size: 1.75rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  p,
+  a,
+  input,
+  textarea,
+  button {
+    font-size: 0.85rem;
+    line-height: 1.75rem;
+  }
+}
+@keyframes expandUnderline {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
 .intro {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  gap: 2em;
-  padding-bottom: 8em;
+  padding-bottom: clamp(3rem, 10%, 5rem);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 .intro-text {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: clamp(1.25rem, 10%, 3rem);
 }
-.intro-text p {
-  width: 75%;
-}
-.intro-text .underline {
+.intro-text #underline {
   -webkit-text-decoration: underline solid rgb(255, 43, 78);
           text-decoration: underline solid rgb(255, 43, 78);
   display: inline-block;
 }
-.intro-text #contact {
+.intro-text #description {
+  width: 75%;
+}
+.intro-text button {
   width: -moz-fit-content;
   width: fit-content;
-  font-weight: 700;
   letter-spacing: 2px;
-  cursor: pointer;
-  position: relative;
+  padding-inline: 0;
 }
-.intro #dp {
-  height: 750px;
-  border-radius: 20px;
+.intro-text button .underline-expand {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgb(255, 43, 78);
+  transform: scaleX(1);
+  transition: transform 0.75s ease;
+}
+.intro-text button:hover #underline-expand {
+  animation: expandUnderline 0.75s ease forwards;
+}
+.intro img {
   filter: contrast(115%);
+  display: block;
+  width: clamp(25rem, 100%, 50rem);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+  }
+  .intro #description {
+    width: 100%;
+  }
+  .intro button {
+    letter-spacing: 1px;
+    padding-block: 0;
+  }
+  .intro button #underline-expand {
+    height: 2px;
+  }
 }/*# sourceMappingURL=Intro.css.map */

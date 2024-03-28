@@ -2,13 +2,24 @@ import "./Header.scss";
 import Github from "../../public/svg/Github";
 import Linkedin from "../../public/svg/Linkedin";
 import Email from "../../public/svg/Email";
+import Phone from "../../public/svg/Phone";
 
 const Header = () => {
+  const copyTextToClipboard = (text) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        console.log("Text copied: ", text);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div className="header">
-      <div className="header-content">
+      <div className="content">
         <h1>milda_singh</h1>
-        <section className="header-content-icons">
+        <div className="icons">
           <a
             href="https://github.com/cat-codes"
             target="_blank"
@@ -23,16 +34,14 @@ const Header = () => {
           >
             <Linkedin />
           </a>
-          <a
-            href="mailto:milda.singh@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a onClick={() => copyTextToClipboard("milda.singh@gmail.com")}>
             <Email />
           </a>
-        </section>
+          <a onClick={() => copyTextToClipboard("+49 176 65159155")}>
+            <Phone />
+          </a>
+        </div>
       </div>
-      <div className="header-border" />
     </div>
   );
 };
