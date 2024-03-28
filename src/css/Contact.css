@@ -8,7 +8,7 @@ body {
 }
 
 #root {
-  width: clamp(320px, 100%, 1920px);
+  max-width: 1920px;
   padding-inline: clamp(1.25rem, 10%, 10rem);
   padding-block: clamp(1.25rem, 10%, 3rem);
   display: flex;
@@ -44,7 +44,7 @@ h2 {
 }
 
 h3 {
-  font-size: 4.25rem;
+  font-size: 4.25em;
 }
 
 h4 {
@@ -104,7 +104,10 @@ svg:hover {
   scale: 1.15;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 667px) {
+  #root {
+    gap: 3rem;
+  }
   h1 {
     font-size: 1.25rem;
   }
@@ -113,7 +116,7 @@ svg:hover {
     line-height: 3rem;
   }
   h3 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
   h4 {
     font-size: 1.75rem;
@@ -128,6 +131,7 @@ svg:hover {
   button {
     font-size: 0.85rem;
     line-height: 1.75rem;
+    padding: 0;
   }
 }
 @keyframes growUnderline {
@@ -162,12 +166,12 @@ svg:hover {
 .contact-contents ul {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
-.contact-contents ul #txt {
+.contact-contents ul p {
   color: rgb(255, 255, 255);
   font-size: 24px;
   line-height: 2.5rem;
-  padding-bottom: 1rem;
   max-width: 600px;
 }
 .contact-contents ul li a {
@@ -243,19 +247,33 @@ svg:hover {
   animation: shrinkUnderline 0.75s ease forwards;
 }
 
-@media (max-width: 768px) {
-  .contact-contents {
-    flex-direction: column;
+@media (max-width: 667px) {
+  .contact {
+    gap: 1rem;
   }
-  .contact-contents #txt {
-    font-size: 0.85rem;
+  .contact .contact-contents {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .contact .contact-contents ul {
+    gap: 0.75rem;
+  }
+  .contact .contact-contents ul p {
+    font-size: 1rem;
     line-height: 1.75rem;
   }
-  .contact-contents form {
+  .contact .contact-contents ul li a {
+    font-size: 0.75rem;
+  }
+  .contact .contact-contents form {
     width: 100%;
     gap: 1rem;
   }
-  .contact-contents form button {
+  .contact .contact-contents form textarea {
+    height: 125px;
+  }
+  .contact .contact-contents form button {
     width: 6rem;
+    padding-top: 1rem;
   }
 }/*# sourceMappingURL=Contact.css.map */

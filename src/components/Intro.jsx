@@ -11,7 +11,7 @@ const Intro = React.forwardRef(({ scrollToContact }, ref) => {
             I&apos;m <span id="underline">Milda Singh</span>.
           </section>
         </h2>
-        <p id="description">
+        <p>
           I&apos;m a React front end developer based in Munich, Germany. I love
           motion design, and my favorite part is enriching the websites with
           animated interactions.
@@ -21,7 +21,9 @@ const Intro = React.forwardRef(({ scrollToContact }, ref) => {
           <div className="underline-expand" />
         </button>
       </div>
-      <img src="/img/dp.png" alt="Profile Picture" />
+      <div className="dp">
+        <img src="/img/dp.png" alt="Profile Picture" />
+      </div>
     </div>
   );
 });

@@ -36,12 +36,12 @@
     ul{
       display: flex;
       flex-direction: column;
+      width: 100%;
 
-      #txt {
+      p {
         color: map-get($colors, accent2);
         font-size: 24px;
         line-height: 2.5rem;
-        padding-bottom: 1rem;
         max-width: 600px;
       }
 
@@ -135,21 +135,42 @@
   }
 }
 
-@media (max-width: 768px) {
-  .contact-contents {
-    flex-direction: column;
+@media (max-width: 667px) {
+  .contact {
+    gap: 1rem;
 
-    #txt {
-      font-size: 0.85rem;
-      line-height: 1.75rem;
-    }
+    .contact-contents {
+      flex-direction: column;
+      gap: 2rem;
 
-    form {
-      width: 100%;
-      gap: 1rem;
+      ul {
+        gap: 0.75rem;
 
-      button {
-        width: 6rem;
+        p {
+          font-size: 1rem;
+          line-height: 1.75rem;
+        }
+
+        li {
+
+          a {
+            font-size: 0.75rem;
+          }
+        }
+      }
+
+      form {
+        width: 100%;
+        gap: 1rem;
+
+        textarea {
+            height: 125px;
+        }
+
+        button {
+          width: 6rem;
+          padding-top: 1rem;
+        }
       }
     }
   }

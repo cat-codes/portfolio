@@ -11,40 +11,32 @@
 }
 
 .intro {
-  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  padding-bottom: clamp(3rem, 10%, 5rem);
+  padding-bottom: 5rem;
   border-bottom: 1px solid map-get($colors, secondary);
 
   &-text {
-    width: 100%;
-    height: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: clamp(1.25rem, 10%, 3rem);
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3rem;
 
     #underline {
       text-decoration: underline solid map-get($colors, accent);
       display: inline-block;
     }
 
-    #description {
+    p {
       width: 75%;
     }
 
     button {
-      width: fit-content;
       letter-spacing: 2px;
-      padding-inline: 0;
+      padding: 0;
 
       .underline-expand {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
         height: 3px;
         background: map-get($colors, accent);
         transform: scaleX(1);
@@ -57,28 +49,35 @@
     }
   }
 
-  img {
-    filter: contrast(115%);
-    display: block;
-    width: clamp(25rem, 100%, 50rem);
-    overflow: hidden;
+  .dp {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: auto;
+      filter: contrast(115%);
+    }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 667px) {
   .intro {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    padding-bottom: 3rem;
 
-    #description {
-      width: 100%;
-    }
+    &-text {
+      gap: 1.5rem;
+      padding-top: 3rem;
 
-    button {
-      letter-spacing: 1px;
-      padding-block: 0;
+      p {
+        width: 100%;
+      }
 
-      #underline-expand {
-        height: 2px;
+      button {
+        letter-spacing: 1px;
       }
     }
   }
