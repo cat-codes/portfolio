@@ -3,23 +3,23 @@
 .skills {
   width: 100%;
 
-  .skills-grid {
+  .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 15em);
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     justify-content: space-between;
-    gap: 3em 4em;
+    gap: 4em 2em;
 
     &-piece {
+      box-sizing: border-box;
       position: relative;
       display: flex;
-      flex-direction: column;
+      flex: 1;
       align-items: center;
       justify-content: center;
+      text-align: center;
       height: 100%;
-      width: 100%;
-      padding-block: 1em;
-      gap: 0.75em;
-      background-color: inherit;
+      padding-block: 6em;
+      border: 3px solid map-get($colors, secondary);
       border-radius: 8px;
       backface-visibility: hidden;
       transition: transform 0.75s ease-out;
@@ -43,6 +43,15 @@
         background: map-get($colors, accent2);
         transform: rotateY(180deg);
       }
+    }
+  }
+}
+
+@media (max-width: 667px) {
+  .skills {
+
+    .grid {
+      gap: 3em 2em;
     }
   }
 }

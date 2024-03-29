@@ -9,16 +9,13 @@ body {
 
 #root {
   max-width: 1920px;
-  padding-inline: clamp(1.25rem, 10%, 10rem);
-  padding-block: clamp(1.25rem, 10%, 3rem);
+  padding: 3rem 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 5rem;
   font-family: "Comfortaa", sans-serif;
-  background: rgb(1, 2, 3);
-  box-sizing: border-box;
 }
 
 h1,
@@ -98,6 +95,7 @@ ul {
 }
 
 svg {
+  cursor: pointer;
   transition: scale 0.3s ease-out;
 }
 svg:hover {
@@ -107,6 +105,7 @@ svg:hover {
 @media (max-width: 667px) {
   #root {
     gap: 3rem;
+    padding: 2rem 5rem;
   }
   h1 {
     font-size: 1.25rem;
@@ -142,65 +141,109 @@ svg:hover {
     transform: scaleX(1);
   }
 }
-.intro {
-  display: flex;
-  padding-bottom: 5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-.intro-text {
-  flex: 1;
+.grid-piece {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 0.75rem;
+}
+.grid-piece .image-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+}
+.grid-piece .image-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-position: top left;
+     object-position: top left;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.grid-piece .image-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease-out;
+}
+.grid-piece .image-container:hover::after {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+.grid-piece .image-container .description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 3rem;
+  color: rgb(255, 255, 255);
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.3s ease-out;
 }
-.intro-text #underline {
-  -webkit-text-decoration: underline solid rgb(255, 43, 78);
-          text-decoration: underline solid rgb(255, 43, 78);
-  display: inline-block;
+.grid-piece .image-container:hover .description {
+  opacity: 1;
 }
-.intro-text p {
-  width: 75%;
+
+p {
+  font-size: 12px;
+  word-spacing: 0.75rem;
+  opacity: 0.8;
 }
-.intro-text button {
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+.links button {
   letter-spacing: 2px;
-  padding: 0;
+  padding-inline: 0;
 }
-.intro-text button .underline-expand {
+.links button .underline-expand {
   height: 3px;
   background: rgb(255, 43, 78);
   transform: scaleX(1);
   transition: transform 0.75s ease;
 }
-.intro-text button:hover .underline-expand {
+.links button:hover .underline-expand {
   animation: expandUnderline 0.75s ease forwards;
-}
-.intro .dp {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.intro .dp img {
-  width: 100%;
-  height: auto;
-  filter: contrast(115%);
 }
 
 @media (max-width: 667px) {
-  .intro {
-    flex-direction: column-reverse;
-    padding-bottom: 3rem;
+  .grid-piece {
+    gap: 0.5rem;
   }
-  .intro-text {
-    gap: 1.5rem;
-    padding-top: 3rem;
+  .grid-piece .image-container {
+    height: 300px;
+    margin-bottom: 1rem;
   }
-  .intro-text p {
+  .grid-piece .image-container img {
     width: 100%;
+    height: 300px;
   }
-  .intro-text button {
+  .grid-piece .image-container .description {
+    height: 300px;
+  }
+  .grid-piece h5 {
+    padding-bottom: 0.15rem;
+  }
+  .grid-piece p {
+    font-size: 10px;
+    word-spacing: 0.5rem;
+    line-height: 1.25rem;
+  }
+  .grid-piece button {
     letter-spacing: 1px;
   }
-}/*# sourceMappingURL=Intro.css.map */
+}/*# sourceMappingURL=ProjectsGridPiece.css.map */

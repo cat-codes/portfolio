@@ -91,11 +91,14 @@ const Contact = React.forwardRef((props, ref) => {
           <input name="user_name" placeholder="Name" type="text" />
           <input name="user_email" placeholder="Email" type="email" />
           <textarea name="message" placeholder="Message" />
-          <button type="submit" value="Send">
-            {" "}
-            <div id="underline-grow" />
-            <span>Send</span>
-          </button>
+          <div className="form-bottom">
+            {/* <p>Thank You for your message!</p> */}
+            <button type="submit" value="Send">
+              {" "}
+              <div id="underline-grow" />
+              <span>Send</span>
+            </button>
+          </div>
         </form>
       </div>
     </div>

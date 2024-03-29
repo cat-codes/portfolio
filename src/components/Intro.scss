@@ -43,7 +43,7 @@
         transition: transform 0.75s ease;
       }
 
-      &:hover #underline-expand {
+      &:hover .underline-expand {
         animation: expandUnderline 0.75s ease forwards;
       }
     }
