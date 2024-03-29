@@ -2,10 +2,16 @@
 
 .skills {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   .grid {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    align-items: center;
     justify-content: space-between;
     gap: 4em 2em;
 
@@ -13,11 +19,11 @@
       box-sizing: border-box;
       position: relative;
       display: flex;
-      flex: 1;
       align-items: center;
       justify-content: center;
       text-align: center;
       height: 100%;
+      width: 100%;
       padding-block: 6em;
       border: 3px solid map-get($colors, secondary);
       border-radius: 8px;
@@ -33,7 +39,6 @@
       .back {
         position: absolute;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 100%;
