@@ -42,12 +42,12 @@ const Contact = React.forwardRef((props, ref) => {
     <div className="contact" ref={ref}>
       <h3>contact</h3>
       <div className="contact-contents">
-        <p>
-          Let&apos;s get in touch! To connect with me you can reach out through
-          social platforms, through my personal contacts provided below, or
-          simply by sending a message directly.
-        </p>
         <ul>
+          <p>
+            Let&apos;s get in touch! To connect with me you can reach out
+            through social platforms, through my personal contacts provided
+            below, or simply by sending a message directly.
+          </p>
           <li>
             <a onClick={() => copyTextToClipboard("+49 176 65159155")}>
               <Phone />
