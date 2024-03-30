@@ -10,7 +10,7 @@ const ProjectsGridPiece = ({
   description,
 }) => {
   return (
-    <a className="grid-piece" href={hrefProject}>
+    <div className="grid-piece">
       <div className="image-container">
         <img src={`img/${imgLnk}`} alt="Project Image" />
         <div className="description">{description}</div>
@@ -29,7 +29,7 @@ const ProjectsGridPiece = ({
           <div className="underline-expand" />
         </button>
       </div>
-    </a>
+    </div>
   );
 };
 
