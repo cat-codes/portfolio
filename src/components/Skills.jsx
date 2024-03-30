@@ -6,15 +6,36 @@ const Skills = () => {
       <div className="grid">
         <div className="grid-piece">
           <h4>Front End Web Development</h4>
-          <div className="back">Description of skills</div>
+          <div className="back">
+            HTML | (S)CSS | JavaScript | ReactJS | Git(Hub) | FramerMotion
+          </div>
         </div>
         <div className="grid-piece">
           <h4>UX/UI Design</h4>
-          <div className="back">Description of skills</div>
+          <div className="back">
+            Figma | Adobe XD | UX Research | Accessibility | Ideation |
+            Wireframing | Prototyping{" "}
+          </div>
         </div>
         <div className="grid-piece">
           <h4>Video Editing</h4>
-          <div className="back">Description of skills</div>
+          <div className="back">
+            Adobe Premiere Pro | Adobe After Effects | Adobe Media Encoder |
+            DaVinci Resolve
+          </div>
+        </div>
+        <div className="grid-piece">
+          <h4>Graphic Design</h4>
+          <div className="back">
+            Adobe Photoshop | Adobe Illustrator | Adobe InDesign | Adobe
+            Lightroom
+          </div>
+        </div>
+        <div className="grid-piece">
+          <h4>Cloud Infrastructure</h4>
+          <div className="back">
+            AWS | Linux | MySQL | VM VirtualBox | Docker | Terraform
+          </div>
         </div>
         {/* <div className="grid-piece">
           <h4>Adobe CC</h4>

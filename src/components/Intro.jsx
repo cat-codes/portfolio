@@ -12,9 +12,9 @@ const Intro = React.forwardRef(({ scrollToContact }, ref) => {
           </section>
         </h2>
         <p>
-          I&apos;m a React front end developer based in Munich, Germany. I love
-          motion design, and my favorite part is enriching the websites with
-          animated interactions.
+          I&apos;m a React front end developer based in Munich, Germany. I am
+          especially interested in motion design, and my passions is seeing the
+          websites I am working on come alive through animated interactions.
         </p>
         <button onClick={scrollToContact}>
           CONTACT ME

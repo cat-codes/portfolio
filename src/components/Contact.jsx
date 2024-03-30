@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./Contact.scss";
 import emailjs from "@emailjs/browser";
 import Phone from "../../public/svg/Phone";
@@ -9,6 +9,8 @@ import Copy from "../../public/svg/Copy";
 
 const Contact = React.forwardRef((props, ref) => {
   const form = useRef();
+
+  const [isSent, setIsSent] = useState(false);
 
   const copyTextToClipboard = (text) => {
     navigator.clipboard
@@ -30,13 +32,17 @@ const Contact = React.forwardRef((props, ref) => {
       })
       .then(
         () => {
+          setIsSent(true);
           console.log("Message sent.");
+          form.current.reset();
         },
         (error) => {
           console.log(error.text);
         }
       );
   };
+
+  console.log("Sent status: ", isSent);
 
   return (
     <div className="contact" ref={ref}>
@@ -88,14 +94,18 @@ const Contact = React.forwardRef((props, ref) => {
           </li>
         </ul>
         <form ref={form} onSubmit={sendEmail}>
-          <input name="user_name" placeholder="Name" type="text" />
-          <input name="user_email" placeholder="Email" type="email" />
-          <textarea name="message" placeholder="Message" />
-          <div className="form-bottom">
-            {/* <p>Thank You for your message!</p> */}
+          <input name="user_name" placeholder="Name" type="text" required />
+          <input name="user_email" placeholder="Email" type="email" required />
+          <textarea name="message" placeholder="Message" required />
+          <div
+            className="send-confirm"
+            style={{ justifyContent: isSent ? "space-between" : "flex-end" }}
+          >
+            {isSent && (
+              <p className="message sent"> Thank You for your message!</p>
+            )}
             <button type="submit" value="Send">
-              {" "}
-              <div id="underline-grow" />
+              <div className="underline-grow" />
               <span>Send</span>
             </button>
           </div>

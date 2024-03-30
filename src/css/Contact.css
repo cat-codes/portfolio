@@ -8,6 +8,7 @@ body {
 }
 
 #root {
+  width: 100%;
   max-width: 1920px;
   padding: 3rem 10rem;
   display: flex;
@@ -16,6 +17,7 @@ body {
   justify-content: center;
   gap: 5rem;
   font-family: "Comfortaa", sans-serif;
+  box-sizing: border-box;
 }
 
 h1,
@@ -57,13 +59,13 @@ a,
 input,
 textarea,
 button {
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 2rem;
   word-spacing: normal;
 }
 
 a {
-  font-size: 14px;
+  font-size: 1rem;
   color: rgb(255, 255, 255);
   display: flex;
   align-items: center;
@@ -80,6 +82,7 @@ button {
   background: none;
   border: none;
   padding-block: 0.5rem;
+  cursor: pointer;
 }
 
 ul {
@@ -105,7 +108,7 @@ svg:hover {
 @media (max-width: 667px) {
   #root {
     gap: 3rem;
-    padding: 2rem 5rem;
+    padding: 2rem;
   }
   h1 {
     font-size: 1.25rem;
@@ -147,6 +150,34 @@ svg:hover {
   }
   100% {
     height: 3px;
+  }
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-20%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
   }
 }
 .contact {
@@ -199,8 +230,6 @@ svg:hover {
   display: flex;
   flex: 1;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: left;
   gap: 2rem;
 }
 .contact-contents form input, .contact-contents form textarea {
@@ -225,22 +254,30 @@ svg:hover {
   height: 150px;
   padding: 0;
 }
-.contact-contents form .form-bottom {
+.contact-contents form .send-confirm {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
 }
-.contact-contents form .form-bottom button {
+.contact-contents form .send-confirm .message {
+  animation-duration: 0.5s, 0.5s;
+  animation-delay: 0s, 3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+.contact-contents form .send-confirm .message.sent {
+  animation-name: slideIn, slideOut;
+}
+.contact-contents form .send-confirm button {
   font-weight: 700;
   width: 8rem;
   padding-inline: 2rem;
 }
-.contact-contents form .form-bottom button span {
+.contact-contents form .send-confirm button span {
   position: relative;
   z-index: 1;
 }
-.contact-contents form .form-bottom button #underline-grow {
+.contact-contents form .send-confirm button .underline-grow {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -250,10 +287,10 @@ svg:hover {
   transition: height 0.75s ease;
   z-index: 0;
 }
-.contact-contents form .form-bottom button:hover #underline-grow {
+.contact-contents form .send-confirm button:hover .underline-grow {
   animation: growUnderline 0.75s ease forwards;
 }
-.contact-contents form .form-bottom button:not(:hover) #underline-grow {
+.contact-contents form .send-confirm button:not(:hover) .underline-grow {
   animation: shrinkUnderline 0.75s ease forwards;
 }
 

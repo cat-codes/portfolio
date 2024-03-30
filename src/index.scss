@@ -66,13 +66,13 @@ a,
 input,
 textarea,
 button {
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 2rem;
   word-spacing: normal;
 }
 
 a {
-  font-size: 14px;
+  font-size: 1rem;
   color: map-get($colors, accent2);
   display: flex;
   align-items: center;
@@ -90,6 +90,7 @@ button {
   background: none;
   border: none;
   padding-block: 0.5rem;
+  cursor: pointer;
   }
 
 ul {

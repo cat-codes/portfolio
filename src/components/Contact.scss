@@ -20,6 +20,40 @@
   }
 }
 
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translateY(-20%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateY(-20%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
 .contact {
   width: 100%;
   display: flex;
@@ -75,8 +109,6 @@
       display: flex;
       flex: 1;
       flex-direction: column;
-      align-items: flex-end;
-      justify-content: left;
       gap: 2rem;
 
       input, textarea {
@@ -105,11 +137,21 @@
         padding: 0;
       }
 
-      .form-bottom {
+      .send-confirm {
+        width: 100%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 100%;
+
+        .message {
+          animation-duration: 0.5s, 0.5s;
+          animation-delay: 0s, 3s;
+          animation-timing-function: ease-in-out;
+          animation-fill-mode: forwards;
+        }
+
+        .message.sent {
+          animation-name: slideIn, slideOut;
+        }
 
         button {
           font-weight: 700;
@@ -121,7 +163,7 @@
             z-index: 1;
           }
 
-          #underline-grow {
+          .underline-grow {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -132,11 +174,11 @@
             z-index: 0;
           }
 
-          &:hover #underline-grow {
+          &:hover .underline-grow {
             animation: growUnderline 0.75s ease forwards;
           }
 
-          &:not(:hover) #underline-grow {
+          &:not(:hover) .underline-grow {
             animation: shrinkUnderline 0.75s ease forwards;
           }
         }

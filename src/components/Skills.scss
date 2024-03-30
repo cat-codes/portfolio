@@ -10,7 +10,7 @@
   .grid {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     align-items: center;
     justify-content: space-between;
     gap: 4em 2em;
@@ -45,8 +45,12 @@
         width: 100%;
         border-radius: 8px;
         backface-visibility: hidden;
-        background: map-get($colors, accent2);
+        background-color: rgba(255, 255, 255, 0.9);
         transform: rotateY(180deg);
+        font-size: 1.25rem;
+        padding: 2rem;
+        line-height: 2rem;
+        box-sizing: border-box;
       }
     }
   }
