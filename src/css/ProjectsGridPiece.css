@@ -1,23 +1,20 @@
 body {
+  margin: 0;
+  font-family: "Comfortaa", sans-serif;
+  background: rgb(1, 2, 3);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0;
-  background: rgb(1, 2, 3);
 }
 
 #root {
-  width: 100%;
-  max-width: 1920px;
-  padding: 3rem 10rem;
+  box-sizing: border-box;
+  max-width: 1280px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5rem;
-  font-family: "Comfortaa", sans-serif;
-  box-sizing: border-box;
+  gap: 3rem;
+  padding: 3rem 10rem;
 }
 
 h1,
@@ -26,51 +23,46 @@ h3,
 h4,
 h5,
 p,
+a,
 input,
 textarea,
 button,
 ul {
   color: rgb(255, 255, 255);
   margin: 0;
+  padding: 0;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 28px;
 }
 
 h2 {
-  font-size: 5.5rem;
+  font-size: 56px;
 }
 
 h3 {
-  font-size: 4.25em;
+  font-size: 42px;
 }
 
 h4 {
-  font-size: 2.25rem;
-}
-
-h5 {
-  font-size: 1.75rem;
+  font-size: 20px;
 }
 
 p,
-a,
 input,
-textarea,
-button {
-  font-size: 1.25rem;
-  line-height: 2rem;
+textarea {
+  font-size: 14px;
+  line-height: 28px;
   word-spacing: normal;
 }
 
 a {
-  font-size: 1rem;
-  color: rgb(255, 255, 255);
+  font-size: 12px;
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  text-decoration: none;
 }
 a:hover {
   color: rgb(255, 43, 78);
@@ -78,16 +70,17 @@ a:hover {
 
 button {
   position: relative;
+  font-size: 12px;
   font-family: inherit;
+  letter-spacing: 2px;
+  padding-inline: 0;
   background: none;
   border: none;
-  padding-block: 0.5rem;
   cursor: pointer;
 }
 
 ul {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 14px;
   list-style: none;
   padding: 0;
   display: flex;
@@ -105,35 +98,43 @@ svg:hover {
   scale: 1.15;
 }
 
-@media (max-width: 667px) {
+@media (max-width: 1220px) {
   #root {
-    gap: 3rem;
-    padding: 2rem;
+    padding: 2rem 3rem;
   }
   h1 {
-    font-size: 1.25rem;
+    font-size: 20px;
   }
   h2 {
-    font-size: 2.5rem;
+    font-size: 36px;
     line-height: 3rem;
   }
   h3 {
-    font-size: 2.25rem;
+    font-size: 32px;
   }
   h4 {
-    font-size: 1.75rem;
+    font-size: 18px;
   }
-  h5 {
-    font-size: 1.25rem;
-  }
-  p,
-  a,
-  input,
-  textarea,
   button {
-    font-size: 0.85rem;
-    line-height: 1.75rem;
-    padding: 0;
+    letter-spacing: 1px;
+  }
+}
+@media (max-width: 576px) {
+  #root {
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  h2 {
+    font-size: 36px;
+  }
+  h3 {
+    font-size: 28px;
+  }
+  h4 {
+    font-size: 16px;
   }
 }
 @keyframes expandUnderline {
@@ -149,18 +150,17 @@ svg:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.75rem;
 }
 .grid-piece .image-container {
   position: relative;
-  width: 100%;
-  height: 400px;
   overflow: hidden;
-  margin-bottom: 1.75rem;
+  width: 100%;
+  height: 20rem;
+  margin-bottom: 1.5rem;
 }
 .grid-piece .image-container img {
   width: 100%;
-  height: 100%;
+  height: auto;
   -o-object-position: top left;
      object-position: top left;
   -o-object-fit: cover;
@@ -177,7 +177,7 @@ svg:hover {
   transition: background-color 0.3s ease-out;
 }
 .grid-piece .image-container:hover::after {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.95);
 }
 .grid-piece .image-container .description {
   position: absolute;
@@ -190,9 +190,9 @@ svg:hover {
   justify-content: center;
   color: rgb(255, 255, 255);
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 14px;
   padding: 2rem;
-  line-height: 2rem;
+  line-height: 28px;
   box-sizing: border-box;
   opacity: 0;
   z-index: 2;
@@ -203,7 +203,6 @@ svg:hover {
 }
 
 p {
-  font-size: 12px;
   word-spacing: 0.75rem;
   opacity: 0.8;
 }
@@ -213,13 +212,11 @@ p {
   align-items: center;
   justify-content: flex-start;
   gap: 2rem;
-}
-.links button {
-  letter-spacing: 2px;
-  padding-inline: 0;
+  padding-top: 0.75rem;
 }
 .links button .underline-expand {
   height: 3px;
+  margin-top: 0.5rem;
   background: rgb(255, 43, 78);
   transform: scaleX(1);
   transition: transform 0.75s ease;
@@ -228,30 +225,19 @@ p {
   animation: expandUnderline 0.75s ease forwards;
 }
 
-@media (max-width: 667px) {
+@media (max-width: 1220px) {
   .grid-piece {
     gap: 0.5rem;
   }
   .grid-piece .image-container {
-    height: 300px;
     margin-bottom: 1rem;
-  }
-  .grid-piece .image-container img {
-    width: 100%;
-    height: 300px;
-  }
-  .grid-piece .image-container .description {
-    height: 300px;
-  }
-  .grid-piece h5 {
-    padding-bottom: 0.15rem;
+    height: 15rem;
   }
   .grid-piece p {
-    font-size: 10px;
+    font-size: 12px;
     word-spacing: 0.5rem;
-    line-height: 1.25rem;
   }
-  .grid-piece button {
-    letter-spacing: 1px;
+  .grid-piece .links {
+    padding-top: 0.25rem;
   }
 }/*# sourceMappingURL=ProjectsGridPiece.css.map */

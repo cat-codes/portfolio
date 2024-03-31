@@ -16,7 +16,7 @@ const ProjectsGridPiece = ({
         <div className="description">{description}</div>
       </div>
       <div>
-        <h5>{title}</h5>
+        <h4>{title}</h4>
         <p>{subject}</p>
       </div>
       <div className="links">
