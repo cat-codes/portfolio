@@ -1,4 +1,5 @@
 @import '../index.scss';
+@import "./_breakpoints.scss";
 
 @keyframes expandUnderline {
   0% {
@@ -22,18 +23,10 @@
     align-items: center;
     justify-content: space-between;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: 3rem 1rem;
-  }
-}
+    gap: 3.5rem 1rem;
 
-@media (max-width: 1220px) {
-  .projects {
-    h3 {
-      padding-bottom: 2rem;
-    }
-
-    .grid {
-      gap: 2rem 1rem;
+    @include tablet {
+    column-gap: 2rem;
     }
   }
 }

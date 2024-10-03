@@ -1,3 +1,5 @@
+@import "src/components/_breakpoints.scss";
+
 $colors: (
   primary: rgb(1, 2, 3),
   accent: rgb(255, 43, 78),
@@ -21,7 +23,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  padding: 3rem 10rem;
+  padding: 1.5rem;
+
+  @include tablet {
+    padding: 2rem 3rem;
+    gap: 4rem;
+  }
+
+  @include desktop {
+    padding: 3rem 10rem;
+    gap: 5rem;
+  }
 }
 
 h1,
@@ -42,22 +54,52 @@ ul {
 
 // Header, Footer
 h1 {
-  font-size: 28px;
+  font-size: 18px;
+
+  @include tablet {
+    font-size: 20px;
+  }
+
+  @include desktop {
+    font-size: 28px;
+  }
 }
 
 // Intro
 h2 {
-  font-size: 56px;
+  font-size: 36px;
+  line-height: 3rem;
+
+  @include desktop {
+    font-size: 56px;
+    line-height: 4rem;
+  }
 }
 
 // Sections
 h3 {
-  font-size: 42px
+  font-size: 28px;
+
+  @include tablet {
+    font-size: 32px;
+  }
+
+  @include desktop {
+    font-size: 42px;
+  }
 }
 
 // Skills
 h4 {
-  font-size: 20px;
+  font-size: 16px;
+
+  @include tablet {
+    font-size: 18px;
+  }
+
+  @include desktop {
+    font-size: 20px;
+  }
 }
 
 p,
@@ -105,67 +147,24 @@ ul {
 
 svg {
   cursor: pointer;
-  transition: scale 0.3s ease-out;
+}
+
+.svgFill {
+  fill: color ease-out;
 
   &:hover {
-    scale: 1.15;
+    fill: map-get($colors, accent);
   }
 }
 
-@media (max-width: 1220px) {
-  #root {
-    padding: 2rem 3rem;
-  }
+.svgStroke {
+  stroke: color ease-out;
 
-  // Header, Footer
-  h1 {
-    font-size: 20px; //2rem
-  }
-
-  // Intro
-  h2 {
-    font-size: 36px;
-    line-height: 3rem;
-  }
-
-  // Sections
-  h3 {
-    font-size: 32px;
-  }
-
-  // Skills, Projects
-  h4 {
-    font-size: 18px;
-  }
-
-  button {
-    letter-spacing: 1px;
+  &:hover {
+    stroke: map-get($colors, accent);
   }
 }
 
-@media (max-width: 768px) {
-  #root {
-    padding: 1.5rem;
-    gap: 2rem;
-  }
-
-  // Header, Footer
-  h1 {
-    font-size: 18px;
-  }
-
-  // Intro
-  h2 {
-    font-size: 36px;
-  }
-
-  // Sections
-  h3 {
-    font-size: 28px;
-  }
-
-  // Skills, Projects
-  h4 {
-    font-size: 16px;
-  }
+button {
+  letter-spacing: 1px;
 }

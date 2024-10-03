@@ -13,7 +13,7 @@ body {
   max-width: 1280px;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 6rem;
   padding: 3rem 10rem;
 }
 
@@ -92,10 +92,20 @@ ul {
 
 svg {
   cursor: pointer;
-  transition: scale 0.3s ease-out;
 }
-svg:hover {
-  scale: 1.15;
+
+.svgFill {
+  fill: color ease-out;
+}
+.svgFill:hover {
+  fill: rgb(255, 43, 78);
+}
+
+.svgStroke {
+  stroke: color ease-out;
+}
+.svgStroke:hover {
+  stroke: rgb(255, 43, 78);
 }
 
 @media (max-width: 1220px) {

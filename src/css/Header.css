@@ -13,7 +13,7 @@ body {
   max-width: 1280px;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 6rem;
   padding: 3rem 10rem;
 }
 
@@ -92,10 +92,10 @@ ul {
 
 svg {
   cursor: pointer;
-  transition: scale 0.3s ease-out;
+  stroke: color ease-out;
 }
 svg:hover {
-  scale: 1.15;
+  stroke: rgb(255, 43, 78);
 }
 
 @media (max-width: 1220px) {
@@ -119,7 +119,7 @@ svg:hover {
     letter-spacing: 1px;
   }
 }
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   #root {
     padding: 1.5rem;
     gap: 2rem;
@@ -150,14 +150,7 @@ svg:hover {
 .header .content .icons {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  width: 100%;
   gap: 0.5rem;
-}
-
-@media (max-width: 1220px) {
-  .header .content .icons {
-    gap: 0.01rem;
-  }
-  .header .content .icons svg {
-    height: 1.25rem;
-  }
 }/*# sourceMappingURL=Header.css.map */

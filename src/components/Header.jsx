@@ -20,26 +20,37 @@ const Header = () => {
       <div className="content">
         <h1>milda_singh</h1>
         <div className="icons">
-          <a
-            href="https://github.com/cat-codes"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/milda-singh/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Linkedin />
-          </a>
-          <a onClick={() => copyTextToClipboard("milda.singh@gmail.com")}>
-            <Email />
-          </a>
-          <a onClick={() => copyTextToClipboard("+49 176 65159155")}>
-            <Phone />
-          </a>
+          <div>
+            <a
+              href="https://github.com/cat-codes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github />
+            </a>
+          </div>
+
+          <div>
+            <a
+              href="https://www.linkedin.com/in/milda-singh/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin />
+            </a>
+          </div>
+
+          <div>
+            <a onClick={() => copyTextToClipboard("milda.singh@gmail.com")}>
+              <Email />
+            </a>
+          </div>
+
+          <div>
+            <a onClick={() => copyTextToClipboard("+49 176 65159155")}>
+              <Phone />
+            </a>
+          </div>
         </div>
       </div>
     </div>

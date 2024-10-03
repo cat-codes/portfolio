@@ -10,6 +10,10 @@ const Skills = () => {
         </div>
       </div>
       <div className="front">
+        <h4>Software development</h4>
+        <div className="back">Python | C++</div>
+      </div>
+      <div className="front">
         <h4>UX/UI Design</h4>
         <div className="back">
           Figma | Adobe XD | UX Research | Accessibility | Ideation |
@@ -31,9 +35,11 @@ const Skills = () => {
       </div>
       <div className="front">
         <h4>Cloud Infrastructure</h4>
-        <div className="back">
-          AWS | Linux | MySQL | VM VirtualBox | Docker | Terraform
-        </div>
+        <div className="back">AWS | Linux | MySQL | Terraform</div>
+      </div>
+      <div className="front">
+        <h4>Containerization & Virtualization</h4>
+        <div className="back">VM VirtualBox | Docker | Kubernetes</div>
       </div>
     </div>
   );

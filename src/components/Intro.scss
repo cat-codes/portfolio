@@ -1,4 +1,5 @@
 @import '../index.scss';
+@import "./_breakpoints.scss";
 
 @keyframes expandUnderline {
   0% {
@@ -12,8 +13,17 @@
 
 .intro {
   display: flex;
+  flex-direction: column-reverse;
   border-bottom: 1px solid map-get($colors, secondary);
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
+
+  @include tablet {
+    flex-direction: row;
+  }
+
+  @include desktop {
+    padding-bottom: 3rem;
+  }
 
   &-text {
     flex: 2;
@@ -21,7 +31,16 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+
+    @include tablet {
+      width: 90%;
+    }
+  
+    @include desktop {
+      gap: 2rem;
+    }
 
     #underline {
       text-decoration: underline solid map-get($colors, accent);
@@ -29,7 +48,15 @@
     }
 
     p {
-      width: 70%;
+      width: 100%;
+
+      @include tablet {
+        width: 90%;
+      }
+    
+      @include desktop {
+        width: 70%;
+      }
     }
 
     button {
@@ -57,35 +84,6 @@
       width: 100%;
       height: auto;
       filter: contrast(115%);
-    }
-  }
-}
-
-@media (max-width: 1220px) {
-  .intro {
-    padding-bottom: 2rem;
-
-    &-text {
-      gap: 1.5rem;
-
-      p {
-        width: 90%;
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .intro {
-    flex-direction: column-reverse;
-    padding-bottom: 2rem;
-
-    &-text {
-      padding-top: 1.5rem;
-
-      p {
-        width: 100%;
-      }
     }
   }
 }
