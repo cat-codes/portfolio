@@ -20,14 +20,18 @@ const ProjectsGridPiece = ({
         <p>{subject}</p>
       </div>
       <div className="links">
-        <button href={hrefProject}>
-          VIEW PROJECT
-          <div className="underline-expand" />
-        </button>
-        <button href={hrefCode}>
-          VIEW CODE
-          <div className="underline-expand" />
-        </button>
+        <a href={hrefProject} target="_blank" rel="noopener noreferrer">
+          <button>
+            VIEW PROJECT
+            <div className="underline-expand" />
+          </button>
+        </a>
+        <a href={hrefCode} target="_blank" rel="noopener noreferrer">
+          <button>
+            VIEW CODE
+            <div className="underline-expand" />
+          </button>
+        </a>
       </div>
     </div>
   );
